@@ -595,7 +595,7 @@ class MMBasicLayer(nn.Module):
 
 
         x_residual = self.fusion(x, l, l_mask)
-        x = x + x_residual
+        x = x + (self.res_gate(x_residual) * x_residual)
 
 
         if self.downsample is not None:
