@@ -53,8 +53,6 @@ pip install -r requirements.txt
 
 
 
-```
-
 ### Weights for Training
 
 1.  Create the `./pretrained_weights` directory where we will be storing the weights.
