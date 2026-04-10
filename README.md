@@ -1,11 +1,10 @@
 # PMA-VQA
 PMA-VQA: Progressive Multi-Scale Feature Fusion with Spatial Adaptive Attention for Remote Sensing Visual Question Answering
 
-# Directory Structure
-LAVT-RIS-main/
-├── bert/
-│   ├── ...          # Implementation of the Swin Transformer backbone network
-│   ├── ...
+## Directory Structure
+PMA-VQA/
+├── bert/                    # BERT language encoder [based on HuggingFace Transformers v3.0.2](https://huggingface.co/transformers/v3.0.2/quicktour.html)
+│   ├── ...                  
 ├── lib/
 │   ├── backbone.py          # Implementation of the Swin Transformer backbone network
 │   ├── segmentation.py      # Functions for building the VQA model architecture
@@ -52,14 +51,7 @@ pip install -r requirements.txt
 
 #### Image
 
-1. Follow instructions in the `./refer` directory to set up subdirectories
-   and download annotations.
-   This directory is a git clone (minus two data files that we do not need)
-   from the [refer](https://github.com/lichengunc/refer) public API.
 
-2. Download images from [COCO](https://cocodataset.org/#download).
-   Please use the first downloading link *2014 Train images [83K/13GB]*, and extract
-   the downloaded `train_2014.zip` file to `./refer/data/images/mscoco/images`.
 
 ```
 
@@ -72,8 +64,8 @@ mkdir ./pretrained_weights
 ```
 
 2.  The original Swin Transformer. Download [pre-trained classification weights of
-       the Swin Transformer](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22k.pth), `swin_base_patch4_window12_384_22k.pth`, into `./pretrained_weights`.
-       These weights are needed in training to initialize the model.
+the Swin Transformer](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22k.pth), `swin_base_patch4_window12_384_22k.pth`, into `./pretrained_weights`.
+These weights are needed in training to initialize the model.
 
 3. Create the `./checkpoints` directory where the program will save the weights during training.
 
