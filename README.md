@@ -48,9 +48,7 @@ pip install -r requirements.txt
 ```
 
 ### Datasets
-
-#### Image
-
+- Download the [RSVQA](https://github.com/syvlo/RSVQA)
 
 
 ### Weights for Training
