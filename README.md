@@ -34,7 +34,7 @@ The code has been verified to work with PyTorch v1.7.1 and Python 3.7.
 - Create a new Conda environment with Python 3.7 then activate it:
 
 ```shell
-conda create -n lavt python==3.7
+conda create -n pma-vqa python==3.7
 conda activate pma-vqa
 ```
 
