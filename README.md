@@ -31,20 +31,20 @@ The code has been verified to work with PyTorch v1.7.1 and Python 3.7.
 
 ### Package Dependencies
 
-1. Create a new Conda environment with Python 3.7 then activate it:
+- Create a new Conda environment with Python 3.7 then activate it:
 
 ```shell
 conda create -n lavt python==3.7
 conda activate pma-vqa
 ```
 
-2. Install PyTorch v1.7.1 with a CUDA version that works on your cluster/machine (CUDA 10.2 is used in this example):
+- Install PyTorch v1.7.1 with a CUDA version that works on your cluster/machine (CUDA 10.2 is used in this example):
 
 ```shell
 conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.2 -c pytorch
 ```
 
-3. Install the packages in `requirements.txt` via `pip`:
+- Install the packages in `requirements.txt` via `pip`:
 
 ```shell
 pip install -r requirements.txt
@@ -52,21 +52,30 @@ pip install -r requirements.txt
 
 ### Datasets
 - Download the [RSVQA](https://github.com/syvlo/RSVQA)
-
+- Data Preprocessing: Convert your original VQA annotations into this format by:
+```json
+{
+    "qid": 47218,
+    "image_name": "472.tif",
+    "question_type": "rural_urban",
+    "question": "Is it a rural or an urban area?",
+    "answer": "rural"
+}
+```
 
 ### Weights for Training
 
-1.  Create the `./pretrained_weights` directory where we will be storing the weights.
+-  Create the `./pretrained_weights` directory where we will be storing the weights.
 
 ```shell
 mkdir ./pretrained_weights
 ```
 
-2.  The original Swin Transformer. Download [pre-trained classification weights of
+-  The original Swin Transformer. Download [pre-trained classification weights of
 the Swin Transformer](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22k.pth), `swin_base_patch4_window12_384_22k.pth`, into `./pretrained_weights`.
 These weights are needed in training to initialize the model.
 
-3. Create the `./checkpoints` directory where the program will save the weights during training.
+- Create the `./checkpoints` directory where the program will save the weights during training.
 
 ```shell
 mkdir ./checkpoints
