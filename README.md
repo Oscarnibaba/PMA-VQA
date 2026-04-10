@@ -2,6 +2,8 @@
 PMA-VQA: Progressive Multi-Scale Feature Fusion with Spatial Adaptive Attention for Remote Sensing Visual Question Answering
 
 ## Directory Structure
+
+```text
 PMA-VQA/
 ├── bert/                    # BERT language encoder [based on HuggingFace Transformers v3.0.2](https://huggingface.co/transformers/v3.0.2/quicktour.html)
 │   ├── ...                  
@@ -17,6 +19,7 @@ PMA-VQA/
 ├── args.py                  # Configuration of training arguments and hyperparameters
 ├── transforms.py            # Image preprocessing and data augmentation functions
 └── utils.py                 # General utility functions
+```
 
 ## Setting Up
 
