@@ -80,3 +80,46 @@ These weights are needed in training to initialize the model.
 ```shell
 mkdir ./checkpoints
 ```
+
+
+- The following script starts training on the LR dataset :
+```shell
+python -m torch.distributed.launch \
+          --nproc_per_node 4  \
+            train_vqa.py 
+          --dataset LR \
+          --images_dir /data/dateaset/LR/Images_LR \
+          --train_json /data/dateaset/LR/LR_Train.json \
+          --val_json /data/dateaset/LR/LR_Val.json \
+          --answers_file /data/dateaset/LR/answers_list_test.json \
+          --batch-size 16 \
+          --lr 0.00005 \
+          --wd 1e-2 \
+          --swin_type base \
+          --pretrained_swin_weights ./pretrained_weights/swin_base_patch4_window12_384_22k.pth \
+          --ck_bert ./pretrained_ckp/bert-base-uncased/ \
+          --bert_tokenizer ./pretrained_ckp/bert-base-uncased/ \
+          --epochs 10 \
+          --img_size 384 \
+          --use_multi_scale \
+          --output-dir ./checkpoint/
+```
+- The trained checkpoints for the LR and HR datasets have been uploaded, which can be downloaded from [Baidu Netdisk](https://pan.baidu.com/s/1K1q6irQL1xPZtqv5O4yYsQ). Extraction code: a47u.
+
+###  Test
+```shell
+python test_vqa.py \
+    --test_json  /data/datasets/LR/LR_Test.json \
+    --images_dir /data/datasets/LR/Images_LR \
+    --answers_file /data//datasets/LR/answers_list_test.json \
+    --bert_tokenizer ./pretrained_ckp/bert-base-uncased/ \
+    --ck_bert ./pretrained_ckp/bert-base-uncased/ \
+    --dataset LR \
+    --img_size 384 \
+    --swin_type base \
+    --window12 \
+    --use_multi_scale \
+    --checkpoint ./checkpoint/LR/model_best_LR.pth \
+    --output_test ./checkpoint/LR/test_results.json \
+    --batch-size 16
+```
